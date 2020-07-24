@@ -1,0 +1,29 @@
+{
+  "name": "unofficial-rss",
+  "version": "1.0.0",
+  "description": "A simple, free, and open source tool to help paying subscribers access their podcasts in any app.",
+  "author": "Fancy Soups <kitchen@fancysoups.com> (https://fancysoups.com)",
+  "license": "MIT",
+  "scripts": {
+    "dev": "next",
+    "build": "next build",
+    "start": "next start -p $PORT"
+  },
+  "dependencies": {
+    "basic-auth": "^2.0.1",
+    "dayjs": "^1.8.30",
+    "jwt-simple": "^0.5.6",
+    "mongoose": "^5.9.22",
+    "next": "^9.4.4",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "rss": "^1.2.2",
+    "xml2js": "^0.4.23"
+  },
+  "homepage": "https://unofficialrss.com",
+  "repository": "https://github.com/fancysoups/unofficial-rss",
+  "bugs": "https://github.com/fancysoups/unofficial-rss/issues",
+  "cacheDirectories": [
+    ".next/cache"
+  ]
+}

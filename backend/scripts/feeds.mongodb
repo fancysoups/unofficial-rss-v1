@@ -1,0 +1,5 @@
+
+use('unofficial-rss');
+
+// Clear caches
+db.feeds.updateMany({}, { $unset: {episodes:true, cachedXML: true, lastFetched: true } })
