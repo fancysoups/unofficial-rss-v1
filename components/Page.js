@@ -149,7 +149,7 @@ const Page = ({ children }) => {
             position: relative;
             top: 40px;
             left: 0;
-            max-width: none;
+            max-width: 600px;
             margin: 0 10px;
             margin-bottom: 50px;
           }
