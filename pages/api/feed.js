@@ -32,7 +32,7 @@ export default async (req, res) => {
 
   const feed = await Feed.findOne({ stitcherID: feedID });
   if (!feed) return res.status(404).json({ error: 'Feed not found.' });
-  const { episodes, lastFetched } = await feed.getXML(user);
+  const { episodes, lastFetched } = await feed.getEpisodes(user);
 
   const rss = new RSS({
     title: feed.title,
@@ -42,6 +42,7 @@ export default async (req, res) => {
     site_url: `https://unofficialrss.com`,
     generator: 'Unofficial RSS',
     language: 'en',
+    author: 'Stitcher Premium',
     copyright: 'Stitcher Premium',
     ttl: '60',
     custom_namespaces: {
@@ -85,8 +86,9 @@ export default async (req, res) => {
       enclosure: {
         url: episodeURL,
         type: 'audio/mpeg',
-        length: '1',
+        size: 1,
       },
+      custom_elements: [{ 'itunes:duration': episode.duration }],
     });
   }
   const xml = rss.xml();

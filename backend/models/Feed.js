@@ -14,6 +14,7 @@ const schema = new mongoose.Schema(
         title: String,
         description: String,
         published: Date,
+        duration: Number,
         url: String,
       },
     ],
@@ -21,7 +22,7 @@ const schema = new mongoose.Schema(
   { timestamps: true }
 );
 
-schema.methods.getXML = async function (user) {
+schema.methods.getEpisodes = async function (user) {
   const threshold = new Date();
   threshold.setHours(threshold.getHours() - 1);
   if (!this.episodes.length || this.lastFetched < threshold) {
@@ -34,7 +35,8 @@ schema.methods.getXML = async function (user) {
       stitcherID: episode.id,
       title: episode.title,
       description: episode.description,
-      date: episode.published,
+      published: episode.published,
+      duration: episode.duration,
       url: episode.url,
     }));
     this.lastFetched = new Date();
