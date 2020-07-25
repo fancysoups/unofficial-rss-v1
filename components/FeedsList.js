@@ -23,7 +23,7 @@ const FeedsList = ({ loading, feeds }) => {
           place-items: center;
         }
         .empty {
-          margin-top: 40px;
+          margin-top: 0px;
           width: 100%;
           padding: 11% 0;
           text-align: center;

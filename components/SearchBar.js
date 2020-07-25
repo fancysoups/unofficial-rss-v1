@@ -30,7 +30,7 @@ const SearchBar = ({ initialTerm = '' }) => {
           top: 20px;
           margin: 0 -20px;
           margin-top: 0px;
-          margin-bottom: 10px;
+          margin-bottom: 0px;
           padding: 20px 20px;
           display: grid;
           grid-template-columns: 1fr auto;

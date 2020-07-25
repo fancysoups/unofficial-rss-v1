@@ -42,6 +42,9 @@ const FeedPreview = ({ feed }) => {
           grid-template-columns: 150px 1fr;
           box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
         }
+        .feed-preview:first-of-type {
+          margin-top: 0;
+        }
         .art {
           min-width: 0;
           display: block;
