@@ -85,6 +85,7 @@ export default async (req, res) => {
       enclosure: {
         url: episodeURL,
         type: 'audio/mpeg',
+        length: '1',
       },
     });
   }

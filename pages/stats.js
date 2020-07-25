@@ -26,7 +26,7 @@ const Stats = ({ users, activeUsers, feeds, lastUpdated }) => {
   return (
     <div className="stats">
       <Head>
-        <title>Stats | UNOFFICIAL RSS</title>
+        <title>Stats | Unofficial RSS</title>
       </Head>
       <div className="stat">
         <div className="name">Feeds</div>

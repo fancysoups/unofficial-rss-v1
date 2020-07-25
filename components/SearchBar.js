@@ -27,16 +27,15 @@ const SearchBar = ({ initialTerm = '' }) => {
       <style jsx>{`
         form {
           position: sticky;
-          top: 0px;
+          top: 20px;
           margin: 0 -20px;
-          margin-top: -40px;
-          margin-bottom: 40px;
+          margin-top: 0px;
+          margin-bottom: 10px;
           padding: 20px 20px;
           display: grid;
           grid-template-columns: 1fr auto;
         }
         input {
-          width: 100%;
           padding: 10px 15px;
           outline: none;
           border-radius: 100px;
@@ -44,9 +43,10 @@ const SearchBar = ({ initialTerm = '' }) => {
           background: hsla(243, 22%, 12%, 97%);
           color: hsl(242, 3%, 55%);
           font-size: 14px;
-          box-shadow: 0px 0px 10px 35px hsla(243, 22%, 12%, 100%);
+          box-shadow: 0px -25px 10px 40px hsla(243, 22%, 12%, 100%);
           backdrop-filter: blur(3px);
           text-align: center;
+          margin: 0 -20px;
         }
         input:focus {
           border: 1px solid ${getColorForStringColor('blue2')};
@@ -56,18 +56,19 @@ const SearchBar = ({ initialTerm = '' }) => {
         button {
           padding: 5px;
         }
-        @media (max-width: 768px) {
+        @media (max-width: 920px) {
           form {
             padding: 10px 20px;
+            margin: auto;
             margin-top: 0px;
             margin-bottom: 20px;
-            background: hsla(243, 22%, 12%, 97%);
-            backdrop-filter: blur(5px);
+            top: 0;
           }
           input {
             font-size: 16px;
-            box-shadow: none;
-            background: transparent;
+            background: hsla(243, 22%, 12%, 97%);
+            box-shadow: 0px -20px 10px 30px hsla(243, 22%, 12%, 100%);
+            margin: 0 -20px;
           }
         }
       `}</style>

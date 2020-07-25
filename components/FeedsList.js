@@ -18,7 +18,7 @@ const FeedsList = ({ loading, feeds }) => {
       )}
       <style jsx>{`
         .loader {
-          height: 400px;
+          height: 300px;
           display: grid;
           place-items: center;
         }

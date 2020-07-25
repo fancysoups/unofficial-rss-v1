@@ -30,6 +30,10 @@ yarn dev
 yarn build && yarn start PORT=3000
 ```
 
+## Original work
+
+The majority of this code is adapted from [Unofficial RSS Feeds for Stitcher Premium](https://gitlab.com/stitcher-rss/stitcher-rss) created by [John Long](https://128.io).
+
 ## License
 
 This project is licensed under the terms of the [MIT license](LICENSE.md).

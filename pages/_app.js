@@ -12,7 +12,7 @@ const App = ({ Component, pageProps }) => {
   return (
     <UserContextProvider>
       <Page>
-        <Component key {...pageProps} />
+        <Component {...pageProps} />
       </Page>
     </UserContextProvider>
   );

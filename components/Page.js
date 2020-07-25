@@ -141,10 +141,11 @@ const Page = ({ children }) => {
           padding: 20px;
           max-width: 600px;
           margin: 0 auto;
-          position: relative;
           z-index: 100;
+          position: sticky;
+          left: 350px;
         }
-        @media (max-width: 768px) {
+        @media (max-width: 920px) {
           .sidebar {
             position: relative;
             top: 40px;
@@ -153,10 +154,13 @@ const Page = ({ children }) => {
             margin-bottom: 50px;
             width: calc(100% - 20px);
             max-width: 580px;
+            z-index: 10;
           }
-
           .children {
             padding: 10px;
+            position: relative;
+            left: 0;
+            z-index: 1;
           }
         }
       `}</style>
