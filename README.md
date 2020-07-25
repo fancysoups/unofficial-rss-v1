@@ -2,7 +2,7 @@
 
 A simple, free, and open source tool that lets paying subscribers access their podcasts in their favorite apps.
 
-This is the source code for UnofficalRSS.com. It's easy to install on your local device or deploy to a private server.
+This is the source code for UnofficialRSS.com. It's easy to install on your local device or deploy to a private server.
 
 ## Requirements
 
