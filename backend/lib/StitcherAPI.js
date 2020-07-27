@@ -56,7 +56,7 @@ export const getFeedDetails = async ({ feedID, user }) => {
   let episodeCount;
   do {
     const response = await get(
-      `GetFeedDetailsWithEpisodes.php?&fid=${feedID}&season_Id=-1&s=${s}&c=${c}&uid=${user.stitcherID}`
+      `GetFeedDetailsWithEpisodes.php?&fid=${feedID}&id_Season=-1&s=${s}&c=${c}&uid=${user.stitcherID}`
     );
     episodeCount = parseInt(response.feed_details.feed[0]['$'].episodeCount);
     latestPage = response.feed_details.episodes?.[0].episode.map(ep => ({

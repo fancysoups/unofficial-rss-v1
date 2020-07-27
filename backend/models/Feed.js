@@ -24,20 +24,17 @@ schema.methods.getEpisodes = async function (user) {
       user: user,
     });
     await eachOfLimit(episodes, 10, async (episode, index) => {
-      console.log(
-        index,
-        await Episode.findOneAndUpdate(
-          { feedID: this._id, stitcherID: episode.id },
-          {
-            stitcherID: episode.id,
-            title: episode.title,
-            description: episode.description,
-            published: episode.published,
-            duration: episode.duration,
-            url: episode.url,
-          },
-          { upsert: true, new: true }
-        )
+      await Episode.findOneAndUpdate(
+        { feedID: this._id, stitcherID: episode.id },
+        {
+          stitcherID: episode.id,
+          title: episode.title,
+          description: episode.description,
+          published: episode.published,
+          duration: episode.duration,
+          url: episode.url,
+        },
+        { upsert: true, new: true }
       );
     });
     this.lastFetched = new Date();
