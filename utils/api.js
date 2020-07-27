@@ -1,4 +1,6 @@
-const API_URL = `${process.env.NEXT_PUBLIC_PROTOCOL}//${process.env.NEXT_PUBLIC_DOMAIN}/api`;
+const API_URL = `${process.env.NEXT_PUBLIC_PROTOCOL || 'https:'}//${
+  process.env.NEXT_PUBLIC_DOMAIN
+}/api`;
 
 export const get = async url => {
   const response = await fetch(API_URL + url);
