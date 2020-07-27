@@ -1,10 +1,12 @@
+const API_URL = `${process.env.NEXT_PUBLIC_PROTOCOL}//${process.env.NEXT_PUBLIC_DOMAIN}/api`;
+
 export const get = async url => {
-  const response = await fetch('/api' + url);
+  const response = await fetch(API_URL + url);
   return await response.json();
 };
 
 export const post = async (url, data) => {
-  const response = await fetch('/api' + url, {
+  const response = await fetch(API_URL + url, {
     body: JSON.stringify(data),
     credentials: 'include',
     method: 'POST',

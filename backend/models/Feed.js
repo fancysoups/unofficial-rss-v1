@@ -1,5 +1,7 @@
 import mongoose from 'mongoose';
 import { getFeedDetails } from 'backend/lib/StitcherAPI';
+import Episode from './Episode';
+import eachOfLimit from 'async/eachOfLimit';
 
 const schema = new mongoose.Schema(
   {
@@ -8,16 +10,6 @@ const schema = new mongoose.Schema(
     description: String,
     imageURL: String,
     lastFetched: Date,
-    episodes: [
-      {
-        stitcherID: { type: String, index: true, unique: true },
-        title: String,
-        description: String,
-        published: Date,
-        duration: Number,
-        url: String,
-      },
-    ],
   },
   { timestamps: true }
 );
@@ -25,24 +17,38 @@ const schema = new mongoose.Schema(
 schema.methods.getEpisodes = async function (user) {
   const threshold = new Date();
   threshold.setHours(threshold.getHours() - 1);
-  if (!this.episodes.length || this.lastFetched < threshold) {
+  if (!this.lastFetched || this.lastFetched < threshold) {
     console.log(`Fetching ${this.title}...`);
     const episodes = await getFeedDetails({
       feedID: this.stitcherID,
       user: user,
     });
-    this.episodes = episodes.map(episode => ({
-      stitcherID: episode.id,
-      title: episode.title,
-      description: episode.description,
-      published: episode.published,
-      duration: episode.duration,
-      url: episode.url,
-    }));
+    await eachOfLimit(episodes, 10, async (episode, index) => {
+      console.log(
+        index,
+        await Episode.findOneAndUpdate(
+          { feedID: this._id, stitcherID: episode.id },
+          {
+            stitcherID: episode.id,
+            title: episode.title,
+            description: episode.description,
+            published: episode.published,
+            duration: episode.duration,
+            url: episode.url,
+          },
+          { upsert: true, new: true }
+        )
+      );
+    });
     this.lastFetched = new Date();
     await this.save();
   }
-  return { episodes: this.episodes, lastFetched: this.lastFetched };
+  const returnEpisodes = await Episode.find({ feedID: this._id })
+    .sort({
+      published: -1,
+    })
+    .lean();
+  return { episodes: returnEpisodes, lastFetched: this.lastFetched };
 };
 
 let model;

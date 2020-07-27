@@ -66,7 +66,7 @@ export const getFeedDetails = async ({ feedID, user }) => {
       ...ep['$'],
     }));
     episodes = episodes.concat(latestPage);
-    s += c;
+    s += Math.min(c, latestPage.length);
   } while (s < episodeCount);
   return episodes;
 };

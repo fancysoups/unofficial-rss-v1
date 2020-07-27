@@ -17,7 +17,7 @@ export const getStaticProps = async () => {
   const feeds = await Feed.countDocuments();
   return {
     props: { users, activeUsers, feeds, lastUpdated: Date.now() },
-    unstable_revalidate: 60 * 60,
+    revalidate: 1,
   };
 };
 

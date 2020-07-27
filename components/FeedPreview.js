@@ -4,11 +4,7 @@ import CopyToClipboardButton from './CopyToClipboardButton';
 
 const FeedPreview = ({ feed }) => {
   const { user } = useContext(UserContext);
-  const feedURL = `http${process.env.NODE_ENV == 'production' ? 's' : ''}://${
-    user?.privateID
-  }:${user?.privateKey}@${process.env.NEXT_PUBLIC_DOMAIN}/feed/${
-    feed.stitcherID
-  }`;
+  const feedURL = `${process.env.NEXT_PUBLIC_PROTOCOL}//${user?.privateID}:${user?.privateKey}@${process.env.NEXT_PUBLIC_DOMAIN}/feed/${feed.stitcherID}`;
   return (
     <div className="feed-preview">
       <img
