@@ -25,7 +25,7 @@ const Search = () => {
   return (
     <>
       <Head>
-        <title>Search | UNOFFICIAL RSS</title>
+        <title>Search | Unofficial RSS</title>
       </Head>
       <SearchBar initialTerm={term} />
       <FeedsList loading={loading} feeds={feeds} />

@@ -28,17 +28,17 @@ const About = () => {
       </p>
       {user && <UserData />}
       <p>
-        Unofficial RSS is maintained by the creators of Podbay, an independent,
-        future-first podcast company working to make the digital spaces around
-        podcasts more exciting, open, and sustainable over the next decade.
+        Unofficial RSS is maintained by the creators of Podbay, an independent
+        podcast company working to make the digital spaces around podcasts more
+        exciting, open, and sustainable over the next decade.
       </p>
       <p>
         If you appreciate the service provided here, please take a few minutes
-        to try out our new web player at{' '}
+        to preview out our new web product at{' '}
         <a href="https://beta.podbay.fm" target="_blank">
           Podbay.fm
         </a>
-        . It's lightning-fast, intuitive and clutter-free, and never requires a
+        . It's lightning-fast, uncluttered, and intuitive, and never requires a
         login. We also have mobile apps launching later this year, and a variety
         of experimental new features and demos launching soon.
       </p>
@@ -55,7 +55,7 @@ const About = () => {
         .
       </p>
       <p>
-        There are no ads or trackers on this site. Our Stats page is generated
+        There are no ads or trackers on this site. Our stats page is generated
         using counts from our database.
       </p>
       <style jsx>{`
