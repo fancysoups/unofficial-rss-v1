@@ -6,7 +6,7 @@ import { UserContext } from 'components/UserContext';
 const Index = () => {
   const { initialized, user } = useContext(UserContext);
   useEffect(() => {
-    if (initialized && user) Router.push('/feeds');
+    if (initialized && user) Router.replace('/feeds');
   }, [initialized, user]);
   return initialized && !user && <LoginForm />;
 };
