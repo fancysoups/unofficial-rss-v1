@@ -19,7 +19,7 @@ const schema = new mongoose.Schema(
 schema.methods.getEpisodes = async function (user) {
   const threshold = new Date();
   threshold.setHours(threshold.getHours() - 1);
-  if (!this.lastFetched || this.lastFetched < threshold) {
+  if (!this.lastModified || !this.lastFetched || this.lastFetched < threshold) {
     console.log(`Fetching ${this.title}...`);
     const episodes = await getFeedDetails({
       feedID: this.stitcherID,
@@ -34,23 +34,24 @@ schema.methods.getEpisodes = async function (user) {
     await eachOfLimit(episodes, 10, async (episode, index) => {
       const existingQuery = { feedID: this._id, stitcherID: episode.id };
       const existingEpisode = await Episode.findOne(existingQuery)
-        .select(
-          '-_id feedID stitcherID title description published duration url'
-        )
+        .select('-_id feedID stitcherID title description duration url')
         .lean();
       const updatedEpisode = {
         feedID: this._id,
         stitcherID: episode.id,
         title: episode.title,
         description: episode.description,
-        published: new Date(episode.published),
         duration: parseInt(episode.duration),
         url: episode.url,
       };
       if (!existingEpisode || !equal(existingEpisode, updatedEpisode)) {
-        await Episode.updateOne(existingQuery, updatedEpisode, {
-          upsert: true,
-        });
+        await Episode.updateOne(
+          existingQuery,
+          { ...updatedEpisode, published: episode.published },
+          {
+            upsert: true,
+          }
+        );
         if (!changed) changed = true;
       }
     });
