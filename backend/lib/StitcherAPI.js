@@ -36,15 +36,16 @@ export const searchPremiumFeeds = async ({ term, userID }) => {
     true
   );
   if (!response.search.feed) return [];
-  const feeds = response.search.feed
-    .map(item => item['$'])
-    .filter(item => item.premium == '1')
-    .map(item => ({
-      stitcherID: item.id,
-      title: item.name,
-      description: item.feedDescription,
-      imageURL: item.imageURL,
-    }));
+  const feeds =
+    response.search?.feed
+      .map(item => item['$'])
+      .filter(item => item.premium == '1')
+      .map(item => ({
+        stitcherID: item.id,
+        title: item.name,
+        description: item.feedDescription,
+        imageURL: item.imageURL,
+      })) || [];
   return feeds;
 };
 

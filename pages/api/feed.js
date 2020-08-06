@@ -32,7 +32,7 @@ export default async (req, res) => {
 
   const feed = await Feed.findOne({ stitcherID: feedID });
   if (!feed) return res.status(404).json({ error: 'Feed not found.' });
-  const { episodes, lastFetched } = await feed.getEpisodes(user);
+  const { episodes, lastModified } = await feed.getEpisodes(user);
 
   const rss = new RSS({
     title: feed.title,
@@ -93,6 +93,6 @@ export default async (req, res) => {
   }
   const xml = rss.xml();
   res.setHeader('Content-Type', 'text/xml; charset=UTF-8');
-  res.setHeader('Last-Modified', new Date(lastFetched).toISOString());
+  res.setHeader('Last-Modified', new Date(lastModified).toISOString());
   return res.send(xml);
 };
