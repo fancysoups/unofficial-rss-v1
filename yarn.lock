@@ -4854,6 +4854,13 @@ rss@^1.2.2:
     mime-types "2.1.13"
     xml "1.0.1"
 
+rss@shahruz/node-rss:
+  version "1.2.2"
+  resolved "https://codeload.github.com/shahruz/node-rss/tar.gz/769c8c07af23db1df12e1aa325c529e794c6dfa2"
+  dependencies:
+    mime-types "2.1.13"
+    xml "1.0.1"
+
 run-queue@^1.0.0, run-queue@^1.0.3:
   version "1.0.3"
   resolved "https://registry.yarnpkg.com/run-queue/-/run-queue-1.0.3.tgz#e848396f057d223f24386924618e25694161ec47"

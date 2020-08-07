@@ -45,6 +45,7 @@ export default async (req, res) => {
     author: 'Stitcher Premium',
     copyright: 'Stitcher Premium',
     ttl: '60',
+    pubDate: new Date(lastModified),
     custom_namespaces: {
       itunes: 'http://www.itunes.com/dtds/podcast-1.0.dtd',
       googleplay: 'http://www.google.com/schemas/play-podcasts/1.0',

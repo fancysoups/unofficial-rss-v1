@@ -19,7 +19,7 @@
     "next": "^9.4.4",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
-    "rss": "^1.2.2",
+    "rss": "shahruz/node-rss",
     "xml2js": "^0.4.23"
   },
   "homepage": "https://unofficialrss.com",
