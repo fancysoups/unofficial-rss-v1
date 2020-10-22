@@ -35,7 +35,7 @@ const About = () => {
       <p>
         If you appreciate the service provided here, please take a few minutes
         to preview out our new web product at{' '}
-        <a href="https://beta.podbay.fm" target="_blank">
+        <a href="https://podbay.fm" target="_blank">
           Podbay.fm
         </a>
         . It's lightning-fast, uncluttered, and intuitive, and never requires a
