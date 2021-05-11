@@ -6,7 +6,7 @@ import basicAuth from 'basic-auth';
 import RSS from 'rss';
 
 const FOOTER_TEXT =
-  '\n\nThis feed was generated at UnofficialRSS.com for private use.';
+  '\n\nPlease update to v2 of UnofficialRSS before June 15, 2021 to make sure your feeds keep working. <a href="https://v2.unofficialrss.com">UnofficialRSS v2</a>';
 
 export default async (req, res) => {
   await connectDB();
@@ -15,7 +15,7 @@ export default async (req, res) => {
   if (credentials) {
     user = await User.findOne({
       privateID: credentials.name,
-      privateKey: credentials.pass,
+      privateKey: credentials.pass
     });
   } else user = await useAuth(req);
   if (!user) {
@@ -48,29 +48,29 @@ export default async (req, res) => {
     pubDate: new Date(lastModified),
     custom_namespaces: {
       itunes: 'http://www.itunes.com/dtds/podcast-1.0.dtd',
-      googleplay: 'http://www.google.com/schemas/play-podcasts/1.0',
+      googleplay: 'http://www.google.com/schemas/play-podcasts/1.0'
     },
     custom_elements: [
       { 'itunes:author': 'Stitcher Premium' },
       {
-        'itunes:summary': feed.description,
+        'itunes:summary': feed.description
       },
       { 'itunes:block': 'yes' },
       { 'googleplay:block': 'yes' },
       {
         'itunes:owner': [
           { 'itunes:name': 'Unofficial RSS' },
-          { 'itunes:email': 'help@unofficialrss.com' },
-        ],
+          { 'itunes:email': 'help@unofficialrss.com' }
+        ]
       },
       {
         'itunes:image': {
           _attr: {
-            href: feed.imageURL,
-          },
-        },
-      },
-    ],
+            href: feed.imageURL
+          }
+        }
+      }
+    ]
   });
   for (const episode of episodes) {
     const episodeURL = `http${
@@ -87,9 +87,9 @@ export default async (req, res) => {
       enclosure: {
         url: episodeURL,
         type: 'audio/mpeg',
-        size: 1,
+        size: 1
       },
-      custom_elements: [{ 'itunes:duration': episode.duration }],
+      custom_elements: [{ 'itunes:duration': episode.duration }]
     });
   }
   const xml = rss.xml();

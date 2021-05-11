@@ -62,6 +62,11 @@ const Page = ({ children }) => {
             )}
           </div>
         </div>
+        <div className="upgrade">
+          This version will no longer be supported after June 15, 2021. Please
+          upgrade to v2 of UnofficialRSS before then.{' '}
+          <a href="https://v2.unofficialrss.com">Click here to switch to v2</a>
+        </div>
         {user && route == '/feeds' && (
           <div className="credentials">
             If you're asked for login information when adding a feed, use your
@@ -126,6 +131,24 @@ const Page = ({ children }) => {
           padding: 0 10px;
           display: flex;
           justify-content: space-around;
+        }
+        .upgrade {
+          font-size: 14px;
+          padding: 10px;
+          margin-top: 20px;
+          background-color: lightcoral;
+          color: black;
+          border-radius: 5px;
+        }
+        .upgrade a {
+          display: block;
+          background-color: black;
+          color: white;
+          padding: 5px;
+          text-align: center;
+          text-decoration: none;
+          margin-top: 10px;
+          border-radius: 5px;
         }
         .nav-link {
           color: #ddd;
