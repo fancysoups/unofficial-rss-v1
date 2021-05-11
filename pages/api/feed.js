@@ -6,7 +6,7 @@ import basicAuth from 'basic-auth';
 import RSS from 'rss';
 
 const FOOTER_TEXT =
-  '\n\nPlease update to v2 of UnofficialRSS before June 15, 2021 to make sure your feeds keep working. <a href="https://v2.unofficialrss.com">UnofficialRSS v2</a>';
+  '\n\nPlease update to v2 of UnofficialRSS before July 15, 2021 to make sure your feeds keep working. <a href="https://v2.unofficialrss.com">UnofficialRSS v2</a>';
 
 export default async (req, res) => {
   await connectDB();

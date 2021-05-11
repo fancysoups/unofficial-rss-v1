@@ -63,7 +63,7 @@ const Page = ({ children }) => {
           </div>
         </div>
         <div className="upgrade">
-          This version will no longer be supported after June 15, 2021. Please
+          This version will no longer be supported after July 15, 2021. Please
           upgrade to v2 of UnofficialRSS before then.{' '}
           <a href="https://v2.unofficialrss.com">Click here to switch to v2</a>
         </div>
